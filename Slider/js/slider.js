@@ -3,9 +3,10 @@
 const leftButton = document.querySelector(".slider__left-btn");
 const rightButton = document.querySelector(".slider__right-btn");
 const sliderImages = document.querySelectorAll(".slider__image img");
+const backgroundImage = document.querySelector(".background img");
 let num = 0;
 let index;
-let lock = true;
+let attribute;
 
 const counter = document.querySelector(".counter");
 const amountSlides = document.createElement("span");
@@ -43,6 +44,9 @@ function rightClick() {
     sliderImages[num].style.left = "0px";
     sliderImages[num].style.transition = "1s";
 
+    attribute = sliderImages[num].getAttribute("src");
+    backgroundImage.setAttribute("src", attribute);
+
     rightButton.disabled = true;
     setTimeout(() => {
         rightButton.disabled = false;
@@ -72,6 +76,9 @@ function leftClick() {
 
     sliderImages[num].style.left = "0px";
     sliderImages[num].style.transition = "1s";
+
+    attribute = sliderImages[num].getAttribute("src");
+    backgroundImage.setAttribute("src", attribute);
 
     leftButton.disabled = true;
     setTimeout(() => {
